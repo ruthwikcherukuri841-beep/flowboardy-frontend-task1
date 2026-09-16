@@ -54,12 +54,7 @@ export function ProfilePage({
     <section>
       {/* Header card */}
       <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_1px_2px_rgba(16,24,40,0.05)]">
-        <div className="relative h-24 bg-slate-950 sm:h-28" aria-hidden>
-          <div className="absolute inset-0" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px)", backgroundSize: "100% 22px" }} />
-          <span className="absolute bottom-2.5 right-4 hidden items-center gap-1.5 rounded-full bg-white/10 px-2.5 py-1 text-[11px] font-medium text-white/80 sm:inline-flex">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" /> Active this week
-          </span>
-        </div>
+        <div className="h-20 bg-slate-950 sm:h-24" aria-hidden />
         <div className="px-4 pb-4 sm:px-6 sm:pb-5">
           <div className="-mt-9 flex flex-wrap items-end justify-between gap-3">
             <div className="flex items-end gap-3.5">
@@ -69,7 +64,13 @@ export function ProfilePage({
                   {name}
                   <BadgeCheck size={17} className="text-sky-500" aria-label="Verified member" />
                 </h1>
-                <p className="text-[13px] text-slate-500">{role} · <span className="inline-flex translate-y-[-1px] items-center gap-1"><MapPin size={12} className="text-slate-400" />{location}</span></p>
+                <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[13px] text-slate-500">
+                  <span>{role}</span>
+                  <span className="inline-flex items-center gap-1"><MapPin size={12} className="text-slate-400" />{location}</span>
+                  <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] font-semibold text-emerald-700">
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" /> Active this week
+                  </span>
+                </p>
               </div>
             </div>
             <div className="flex gap-2">
