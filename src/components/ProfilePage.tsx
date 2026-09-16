@@ -53,12 +53,10 @@ export function ProfilePage({
   return (
     <section>
       {/* Header card */}
-      <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_1px_2px_rgba(16,24,40,0.05)]">
-        <div className="h-20 bg-slate-950 sm:h-24" aria-hidden />
-        <div className="px-4 pb-4 sm:px-6 sm:pb-5">
-          <div className="-mt-9 flex flex-wrap items-end justify-between gap-3">
-            <div className="flex items-end gap-3.5">
-              <span className="flex h-[72px] w-[72px] items-center justify-center rounded-2xl border-4 border-white text-xl font-extrabold text-white shadow-md" style={{ background: accentSolid }}>{initials(name)}</span>
+      <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-[0_1px_2px_rgba(16,24,40,0.05)] sm:p-6">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div className="flex items-center gap-3.5">
+              <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl text-lg font-extrabold text-white shadow-sm ring-1 ring-black/5" style={{ background: accentSolid }}>{initials(name)}</span>
               <div className="pb-1">
                 <h1 className="flex items-center gap-1.5 text-lg font-bold tracking-tight text-slate-900">
                   {name}
@@ -115,7 +113,6 @@ export function ProfilePage({
               <p className="text-[11px] font-medium text-slate-500">Overdue</p>
             </button>
           </div>
-        </div>
       </div>
 
       {/* Middle grid */}
