@@ -31,6 +31,8 @@ export default function App() {
 
   const [profileName, setProfileName] = useState(() => load("flowboard-name", currentUser.name));
   const [profileRole, setProfileRole] = useState(() => load("flowboard-role", currentUser.role));
+  const [profileBio, setProfileBio] = useState(() => load<string>("flowboard-bio", "Building FlowBoard — focused project tracking for software teams. Currently hardening the board experience before the API milestone."));
+  const [profileLocation, setProfileLocation] = useState(() => load<string>("flowboard-location", "Remote"));
   const [accent, setAccent] = useState<AccentKey>(() => load<AccentKey>("flowboard-accent", "slate"));
   const [density, setDensity] = useState<Density>(() => load<Density>("flowboard-density", "comfortable"));
   const [showCompleted, setShowCompleted] = useState(() => load<string>("flowboard-show-completed", "true") !== "false");
@@ -61,6 +63,8 @@ export default function App() {
   useEffect(() => { save("flowboard-show-completed", String(showCompleted)); }, [showCompleted]);
   useEffect(() => { save("flowboard-name", profileName); }, [profileName]);
   useEffect(() => { save("flowboard-role", profileRole); }, [profileRole]);
+  useEffect(() => { save("flowboard-bio", profileBio); }, [profileBio]);
+  useEffect(() => { save("flowboard-location", profileLocation); }, [profileLocation]);
 
   useEffect(() => {
     setLoading(true);
@@ -317,9 +321,12 @@ export default function App() {
           )}
 
           {view === "profile" && (
-            <ProfilePage name={profileName} role={profileRole} email={currentUser.email} projects={projects} tasks={tasks}
-              onSave={(n, r) => { setProfileName(n); setProfileRole(r); showToast("Profile updated"); }}
-              onOpenTask={openTask} onToast={showToast} />
+            <ProfilePage name={profileName} role={profileRole} email={currentUser.email} bio={profileBio} location={profileLocation}
+              accentSolid={accents[accent].solid} projects={projects} tasks={tasks} compact={compact}
+              onSave={(n, r, b, l) => { setProfileName(n); setProfileRole(r); setProfileBio(b); setProfileLocation(l); showToast("Profile updated"); }}
+              onOpenTask={openTask} onOpenProject={(id) => setSelectedProjectId(id)}
+              onBrowseTasks={(s) => { setTaskStatus(s); setProjectFilter("all"); setView("tasks"); }}
+              onToast={showToast} />
           )}
 
           <Footer onNav={(v) => setView(v)} onLegal={(k) => setLegal(k)} onShortcuts={() => setShowShortcuts(true)} onSettings={() => setShowSettings(true)} onNewProject={() => setShowNewProject(true)} />
