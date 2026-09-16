@@ -54,14 +54,16 @@ export function ProfilePage({
     <section>
       {/* Header card */}
       <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_1px_2px_rgba(16,24,40,0.05)]">
-        <div className="relative h-24 bg-slate-900 sm:h-28" aria-hidden>
-          <div className="absolute inset-0 opacity-[0.35]" style={{ backgroundImage: "radial-gradient(rgba(255,255,255,0.22) 1px, transparent 1px)", backgroundSize: "18px 18px" }} />
-          <div className="absolute inset-x-0 bottom-0 h-1" style={{ background: accentSolid }} />
+        <div className="relative h-24 bg-slate-950 sm:h-28" aria-hidden>
+          <div className="absolute inset-0" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px)", backgroundSize: "100% 22px" }} />
+          <span className="absolute bottom-2.5 right-4 hidden items-center gap-1.5 rounded-full bg-white/10 px-2.5 py-1 text-[11px] font-medium text-white/80 sm:inline-flex">
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" /> Active this week
+          </span>
         </div>
         <div className="px-4 pb-4 sm:px-6 sm:pb-5">
           <div className="-mt-9 flex flex-wrap items-end justify-between gap-3">
             <div className="flex items-end gap-3.5">
-              <span className="flex h-[72px] w-[72px] items-center justify-center rounded-2xl border-4 border-white bg-slate-900 text-xl font-extrabold text-white shadow-md">{initials(name)}</span>
+              <span className="flex h-[72px] w-[72px] items-center justify-center rounded-2xl border-4 border-white text-xl font-extrabold text-white shadow-md" style={{ background: accentSolid }}>{initials(name)}</span>
               <div className="pb-1">
                 <h1 className="flex items-center gap-1.5 text-lg font-bold tracking-tight text-slate-900">
                   {name}
