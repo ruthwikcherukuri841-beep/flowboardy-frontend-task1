@@ -16,7 +16,7 @@ export function SettingsModal({
       <div className="fade absolute inset-0 bg-slate-900/45" onClick={onClose} />
       <div className="modal-rise relative w-full max-w-md rounded-t-2xl bg-white p-5 shadow-2xl sm:rounded-2xl">
         <div className="flex items-start justify-between">
-          <div><h2 className="text-base font-bold text-slate-900">Display & preferences</h2><p className="text-[13px] text-slate-500">Saved automatically in this browser.</p></div>
+          <div><h2 className="text-base font-bold text-slate-900">Display & preferences</h2><p className="text-[13px] text-slate-500">Saved automatically to your FlowBoard account.</p></div>
           <button onClick={onClose} className="rounded-lg p-1.5 hover:bg-slate-100" aria-label="Close"><X size={18} /></button>
         </div>
 
@@ -106,8 +106,8 @@ export function Footer({
         </nav>
       </div>
       <div className="flex flex-wrap items-center justify-between gap-2 border-t border-slate-100 px-5 py-3 text-xs text-slate-400 sm:px-6">
-        <span>© 2026 FlowBoard · v0.1.0 · Crafted for focused teams</span>
-        <span>Preview build — data stays in your browser</span>
+        <span>© 2026 FlowBoard · v0.2.0 · Crafted for focused teams</span>
+        <span>Hosted · your data is saved to FlowBoard</span>
       </div>
     </footer>
   );

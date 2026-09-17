@@ -18,12 +18,12 @@ function Shell({ onClose, title, children }: { onClose: () => void; title: strin
 export function TermsModal({ onClose }: { onClose: () => void }) {
   return (
     <Shell onClose={onClose} title="Terms of Service">
-      <p><strong className="text-slate-800">1. The service.</strong> FlowBoard is a demo project workspace for tracking projects and tasks. It stores data locally in your browser for this preview; no account or server is required.</p>
+      <p><strong className="text-slate-800">1. The service.</strong> FlowBoard is a hosted project and task workspace for tracking projects and tasks. Your account, projects, and tasks are saved to FlowBoard's servers so you can sign in from anywhere.</p>
       <p><strong className="text-slate-800">2. Acceptable use.</strong> Don't upload unlawful, harmful, or infringing content, attempt to disrupt the service, or misrepresent other people's work as your own.</p>
-      <p><strong className="text-slate-800">3. Your content.</strong> You keep all rights to projects and tasks you create. By using the preview you grant permission to store that content locally so the app can function.</p>
-      <p><strong className="text-slate-800">4. Availability.</strong> This preview is provided "as is" without warranties. Features may change as the product evolves toward a hosted release with accounts and sync.</p>
-      <p><strong className="text-slate-800">5. Liability.</strong> To the maximum extent permitted by law, FlowBoard is not liable for indirect or consequential damages arising from use of the preview.</p>
-      <p className="text-xs text-slate-400">Last updated: September 16, 2026 · Contact: hello@flowboard.app</p>
+      <p><strong className="text-slate-800">3. Your content.</strong> You keep all rights to projects and tasks you create. By using the service you grant permission to store that content in your account so it works across devices.</p>
+      <p><strong className="text-slate-800">4. Availability.</strong> This service is provided "as is" without warranties. Features may change as the product evolves.</p>
+      <p><strong className="text-slate-800">5. Liability.</strong> To the maximum extent permitted by law, FlowBoard is not liable for indirect or consequential damages arising from use of the service.</p>
+      <p className="text-xs text-slate-400">Last updated: September 2026 · Contact: hello@flowboard.app</p>
     </Shell>
   );
 }
@@ -31,11 +31,12 @@ export function TermsModal({ onClose }: { onClose: () => void }) {
 export function PrivacyModal({ onClose }: { onClose: () => void }) {
   return (
     <Shell onClose={onClose} title="Privacy Policy">
-      <p><strong className="text-slate-800">What we collect.</strong> In this frontend preview, your projects, tasks, theme, and profile edits are stored only in your browser's local storage. Nothing is sent to a server.</p>
-      <p><strong className="text-slate-800">What we don't collect.</strong> No analytics, cookies for tracking, or third-party advertising in the preview build. The hosted release will document any analytics before enabling them.</p>
-      <p><strong className="text-slate-800">Your control.</strong> Clearing site data in your browser removes all demo content. Export or screenshot anything you want to keep before resetting.</p>
+      <p><strong className="text-slate-800">What we store.</strong> Your name, email, projects, and tasks are stored in your FlowBoard account so your workspace is available every time you sign in.</p>
+      <p><strong className="text-slate-800">Passwords.</strong> Passwords are stored only as salted hashes and are never shared or visible to anyone.</p>
+      <p><strong className="text-slate-800">What we don't do.</strong> We don't sell your data, run third-party advertisers, or track you across unrelated sites.</p>
+      <p><strong className="text-slate-800">Your control.</strong> You can edit any project or task, and delete your content at any time from the app.</p>
       <p><strong className="text-slate-800">Contact.</strong> Privacy questions: hello@flowboard.app. We respond within 7 days.</p>
-      <p className="text-xs text-slate-400">Last updated: September 16, 2026</p>
+      <p className="text-xs text-slate-400">Last updated: September 2026</p>
     </Shell>
   );
 }
@@ -43,8 +44,8 @@ export function PrivacyModal({ onClose }: { onClose: () => void }) {
 export function CookiesModal({ onClose }: { onClose: () => void }) {
   return (
     <Shell onClose={onClose} title="Cookie Notice">
-      <p>This preview uses <strong className="text-slate-800">zero tracking cookies</strong>. The only browser storage used is local storage for your preferences (theme, density, profile name) and demo board data.</p>
-      <p>When accounts and hosting arrive, this notice will list exactly which cookies are used and why — strictly necessary first, everything else opt-in.</p>
+      <p>FlowBoard uses <strong className="text-slate-800">no tracking cookies</strong>. This build needs no cookies to work; authentication uses a JSON Web Token kept in your browser so we can identify you.</p>
+      <p>If analytics are added later, this notice will be updated to list exactly what is collected, with an opt-in.</p>
     </Shell>
   );
 }
@@ -53,14 +54,14 @@ export function AboutModal({ onClose }: { onClose: () => void }) {
   return (
     <Shell onClose={onClose} title="About FlowBoard">
       <p>FlowBoard is a focused project and task workspace for software teams: one board for projects, one list for tasks, and a calm overview that answers "what needs me today?" in seconds.</p>
-      <p>Roadmap: hosted API with real accounts → team invites → AI task drafting and summaries → integrations. This build is the frontend milestone; data stays local until the API lands.</p>
-      <p className="text-xs text-slate-400">Version 0.1.0 · Frontend preview</p>
+      <p>Roadmap: team invites, AI task drafting and summaries, and integrations. This build is the hosted app milestone — your workspace is saved to the database and persists across sessions.</p>
+      <p className="text-xs text-slate-400">Version 0.2.0 · Hosted beta</p>
     </Shell>
   );
 }
 
 export function StatusModal({ onClose }: { onClose: () => void }) {
-  const rows = [["Web app", "Operational"], ["Board & search", "Operational"], ["Notifications (local)", "Operational"], ["Hosted API & sync", "Planned"]];
+  const rows = [["Web app", "Operational"], ["Board & search", "Operational"], ["API", "Operational"], ["Database", "Operational"]];
   return (
     <Shell onClose={onClose} title="System status">
       <ul className="divide-y divide-slate-100">
@@ -73,7 +74,7 @@ export function StatusModal({ onClose }: { onClose: () => void }) {
           </li>
         ))}
       </ul>
-      <p className="text-xs text-slate-400">Uptime last 30 days: 100% (preview served statically)</p>
+      <p className="text-xs text-slate-400">Status reflects the live hosted service.</p>
     </Shell>
   );
 }

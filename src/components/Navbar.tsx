@@ -1,6 +1,6 @@
 import { Bell, Menu, Plus, Search, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { initials } from "../theme";
+import { Avatar } from "./Avatar";
 import { NotificationsPanel } from "./NotificationsPanel";
 import type { AppNotification } from "../data/activity";
 
@@ -8,14 +8,14 @@ export function Navbar({
   query, onQuery, onMenu, sidebarOpen, viewTitle,
   notifications, notifTab, onNotifTab, onOpenTask, onMarkRead, onMarkAll, onClearNotifs,
   notifOpen, onNotifToggle, onNotifClose,
-  onNewTask, onNewProject, onShortcuts, onToast, onProfile, onSettings, profileName, profileRole, profileEmail,
+  onNewTask, onNewProject, onShortcuts, onProfile, onSettings, onSignOut, profileName, profileRole, profileEmail, profileAvatar,
 }: {
   query: string; onQuery: (v: string) => void; onMenu: () => void; sidebarOpen: boolean; viewTitle: string;
   notifications: AppNotification[]; notifTab: "all" | "unread"; onNotifTab: (t: "all" | "unread") => void;
   onOpenTask: (id: string) => void; onMarkRead: (id: string) => void; onMarkAll: () => void; onClearNotifs: () => void;
   notifOpen: boolean; onNotifToggle: () => void; onNotifClose: () => void;
-  onNewTask: () => void; onNewProject: () => void; onShortcuts: () => void; onToast: (m: string) => void;
-  onProfile: () => void; onSettings: () => void; profileName: string; profileRole: string; profileEmail: string;
+  onNewTask: () => void; onNewProject: () => void; onShortcuts: () => void; onSignOut: () => void;
+  onProfile: () => void; onSettings: () => void; profileName: string; profileRole: string; profileEmail: string; profileAvatar: string;
 }) {
   const [profileOpen, setProfileOpen] = useState(false);
   const [createOpen, setCreateOpen] = useState(false);
@@ -79,8 +79,8 @@ export function Navbar({
           </div>
 
           <div className="relative">
-            <button onClick={() => setProfileOpen((v) => !v)} className="ml-0.5 flex h-8 w-8 items-center justify-center rounded-full bg-slate-800 text-[11px] font-bold text-white hover:ring-2 hover:ring-slate-300" aria-label="Account" aria-expanded={profileOpen}>
-              {initials(profileName)}
+            <button onClick={() => setProfileOpen((v) => !v)} className="ml-0.5" aria-label="Account" aria-expanded={profileOpen}>
+              <Avatar avatar={profileAvatar} name={profileName} className="h-8 w-8 text-[11px] hover:ring-2 hover:ring-slate-300" />
             </button>
             {profileOpen && (
               <>
@@ -94,7 +94,7 @@ export function Navbar({
                     <button onClick={() => { setProfileOpen(false); onProfile(); }} className="block w-full px-4 py-2 text-left text-[13px] text-slate-700 hover:bg-slate-50">View profile</button>
                     <button onClick={() => { setProfileOpen(false); onSettings(); }} className="block w-full px-4 py-2 text-left text-[13px] text-slate-700 hover:bg-slate-50">Display settings</button>
                     <button onClick={() => { setProfileOpen(false); onShortcuts(); }} className="block w-full px-4 py-2 text-left text-[13px] text-slate-700 hover:bg-slate-50">Keyboard shortcuts</button>
-                    <button onClick={() => { setProfileOpen(false); onToast("Demo workspace — sign-in stays on for this preview."); }} className="block w-full px-4 py-2 text-left text-[13px] text-slate-700 hover:bg-slate-50">Sign out</button>
+                    <button onClick={() => { setProfileOpen(false); onSignOut(); }} className="block w-full px-4 py-2 text-left text-[13px] text-slate-700 hover:bg-slate-50">Sign out</button>
                   </div>
                 </div>
               </>
